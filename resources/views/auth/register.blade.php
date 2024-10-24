@@ -53,8 +53,8 @@
             color: white;
             padding: 8px 16px;
             border-radius: 4px;
+            width: 100%; /* Hace que el botón ocupe todo el ancho */
         }
-
     </style>
 
     <div class="form-container">
@@ -106,5 +106,11 @@
                 </x-primary-button>
             </div>
         </form>
+
+        <div class="mt-4">
+    <a href="{{ route('google.login') }}">
+        <button>Iniciar sesión con Google</button>
+    </a>
+</div>
     </div>
 </x-guest-layout>

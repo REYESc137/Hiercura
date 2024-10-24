@@ -1,4 +1,14 @@
 <x-guest-layout>
+    <style>
+        button {
+            background-color: #6B8E23; /* Verde musgo para el botón */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            width: 100%; /* Hace que el botón ocupe todo el ancho */
+        }
+    </style>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -37,6 +47,12 @@
             <x-primary-button class="ml-3" style="background-color: #6B8E23; color: white; padding: 8px 16px; border-radius: 4px;">
                 {{ __('Iniciar sesión') }}
             </x-primary-button>
+        </div>
+
+        <div class="mt-4">
+            <a href="{{ route('google.login') }}">
+                <button type="button">Iniciar sesión con Google</button>
+            </a>
         </div>
     </form>
 </x-guest-layout>

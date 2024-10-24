@@ -185,13 +185,53 @@
                 </div>
             </main>
             </main>
+            @if (session('showPasswordModal'))
+    <script>
+        $(document).ready(function() {
+            $('#passwordModal').modal('show');
+        });
+    </script>
+@endif
+
+<!-- Modal para establecer la contraseña -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordModalLabel">Establecer Contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('set.password') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="password">Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Establecer Contraseña</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
         </div>
 
         <!-- Scripts para Bootstrap y otros plugins -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
-        <script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('assets/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+
     </body>
 </html>
